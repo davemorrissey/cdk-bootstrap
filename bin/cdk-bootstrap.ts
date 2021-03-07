@@ -1,6 +1,9 @@
 #!/usr/bin/env node
-import * as cdk from '@aws-cdk/core';
+import { App } from '@aws-cdk/core';
 import { CdkBootstrapStack } from '../lib/cdk-bootstrap-stack';
 
-const app = new cdk.App();
-new CdkBootstrapStack(app, 'CdkBootstrapStack');
+const app = new App();
+new CdkBootstrapStack(app, 'ex-cdk-bootstrap', { env: {
+  account: process.env.CDK_DEFAULT_ACCOUNT,
+  region: process.env.CDK_DEFAULT_REGION
+}});
